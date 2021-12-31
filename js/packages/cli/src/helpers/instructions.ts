@@ -252,7 +252,7 @@ export async function createCandyMachineV2Account(
     lamports:
       await anchorProgram.provider.connection.getMinimumBalanceForRentExemption(
         size,
-      ),
+      ) / 8,
     programId: CANDY_MACHINE_PROGRAM_V2_ID,
   });
 }
