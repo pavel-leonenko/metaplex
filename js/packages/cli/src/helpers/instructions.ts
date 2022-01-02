@@ -225,9 +225,9 @@ export async function createConfigAccount(
     newAccountPubkey: configAccount,
     space: size,
     lamports:
-      await anchorProgram.provider.connection.getMinimumBalanceForRentExemption(
+      (await anchorProgram.provider.connection.getMinimumBalanceForRentExemption(
         size,
-      ),
+      )) / 8,
     programId: CANDY_MACHINE_PROGRAM_ID,
   });
 }
@@ -252,7 +252,7 @@ export async function createCandyMachineV2Account(
     lamports:
       await anchorProgram.provider.connection.getMinimumBalanceForRentExemption(
         size,
-      ) / 8,
+      ),
     programId: CANDY_MACHINE_PROGRAM_V2_ID,
   });
 }
